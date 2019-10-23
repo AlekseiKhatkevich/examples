@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rsexamples'
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+FANCY_REMEMBER_ALL_URLS = True
+FANCY_REMEMBER_STATS_ALL_URLS = True
+
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",

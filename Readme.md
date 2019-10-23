@@ -35,6 +35,6 @@ if you need to change it, you can do it in "examples/settings.py" at the end of 
 If you ran into error during pipenv update:
 
 if you use Windows , you might(not necessarily but possible) need to change in Pipfile :
-lxml = "*"  to  lxml = {path = "./lxml-4.4.1-cp38-cp38-win32.whl"}
+lxml = "*"    to    lxml = {path = "./lxml-4.4.1-cp38-cp38-win32.whl"}
 or any suitable build from  https://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml
 and run pipenv update one more time

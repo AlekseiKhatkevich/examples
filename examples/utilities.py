@@ -20,7 +20,7 @@ def coords(city_name, country=', Sweden'):
     """
     Returns coordinates according the city name and country. Sweden default
     Here we trying to get geo coordinates of a city by it's name. Sweden is default as project
-    from where this code is taken is targeting Swedish second hand sail-boat market.
+    from where this code is taken , targeting Swedish second hand sail-boat market.
     Then we store coords in Redis and when we need to get coords for the same place next time -
     we get it from Redis without requesting OSM(open street maps) geo data provider again.
     Most likely that place will not change its coords often enough to not keep it coords in cache.
@@ -39,11 +39,11 @@ def coords(city_name, country=', Sweden'):
 def spider(name):
     """
     This web spider gets data of the boat from  www.blocket.se and returns information about boat
-    ( by it's name)  which are on display there. From all data here in this example we need
+    ( by it's name)  which are sold on this web site. From all data here in this example we need
     only last one which is dictionary of {boat_name: city name}, like for example
     {'Najad': 'Stockholm'}. Might have few elements in it, quite often 20+
     ---cities_dict---
-    No point cache this function as we always need fresh information form a web site...
+    No point to cache this function as we always need fresh information form a web site...
     """
     address = "https://www.blocket.se/hela_sverige?q=%s&cg=1060&w=3&st=s&ps=&pe=&c=1062&ca=11&is=1&l=0&md=li" % name.replace(" ", "+").replace("-", "+")
     try:
@@ -100,9 +100,9 @@ def spider(name):
 def map_folium(places: dict, name_of_the_boat: str):
     """
     This function creates map and puts geo tags on it with boats names.
-    At the end of the function we put in cache for a week  incoming data of the function in order
+    At the end of the function we put incoming data of the function in cache for a week in order
     to not run this function again if we have same incoming data next time. If quantity of the
-    boats, and their geo coords haven't changed we can reuse same map we have on disc already.
+    boats, and their geo coords haven't changed we can reuse same map we have on HDD already.
     """
     map = folium.Map(location=[59.20, 18.04], zoom_start=7)
     marker_cluster = MarkerCluster().add_to(map)
@@ -134,7 +134,7 @@ def map_folium(places: dict, name_of_the_boat: str):
 def custom_lru_cache(places, name_of_the_boat):
     """
     Here we check if we have stored in cache geo coords incoming data of the function
-    'map_folium' from above and if so, and data are the same - we reuse map we have on disc
+    'map_folium' from above and if so, and data are the same - we reuse map we have on HDD
     already. If not -we create map from scratch (time consuming).
     """
     local_path = os.path.join(settings.BASE_DIR, "templates", "maps", name_of_the_boat +".html")

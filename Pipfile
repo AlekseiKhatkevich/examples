@@ -12,6 +12,7 @@ django-redis = "*"
 geocoder = "*"
 beautifulsoup4 = "*"
 lxml = "*"
+django-fancy-cache = "*"
 
 [requires]
 python_version = "3.8"

@@ -1,5 +1,7 @@
 <!--   -->
 <!DOCTYPE html>
+<h2>Example with map caching</h2>
+
 
 <ul>
     <li> <a href="{% url 'map' name_of_the_boat='Najad' %}" target="_blank">Najad </a> </li>
@@ -9,3 +11,15 @@
     <li> <a href="{% url 'map' name_of_the_boat='Maxi' %}" target="_blank">Maxi</a> </li>
 
 </ul>
+
+
+<h2>Example with response caching</h2>
+
+<li><a href="{% url 'boats' %}" target="_blank">Example 1  with more complicated invalidation</a></li>
+
+<li><a href="{% url 'boats_version_2' %}" target="_blank">Example 2 with more simpler invalidation via URL </a></li>
+
+
+<h2>Example with template caching</h2>
+
+<li><a href="{% url 'boat_detail' pk=3 %}" target="_blank">Example template caching</a></li>
